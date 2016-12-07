@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+ <link href="css/bootstrap.min.css" rel="stylesheet">
+
+ <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/jquery-1.12.1.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+
+
+
+<script>
+  var userAgent = navigator.userAgent + '';
+  if (userAgent.indexOf('iPhone') > -1) {
+    document.write('<script src="js/lib/cordova-iphone.js"></sc' + 'ript>');
+    var mobile_system = 'iphone';
+  } else if (userAgent.indexOf('Android') > -1) {
+    document.write('<script src="js/lib/cordova-android.js"></sc' + 'ript>');
+    var mobile_system = 'android';
+  } else {
+    var mobile_system = '';
+  }
+</script>
+
+
+</head>
+<body>
+
+  <div data-role="page" style="background: white">
+    <div  style="text-shadow: none">
+
+			<nav>
+		<div class="nav-wrapper">
+		  <form>
+		    <div center class="input-field">
+		      <input id="search" type="search" required>
+		      <label for="search"><i class="material-icons">search</i></label>
+		      <i class="material-icons">close</i>
+		    </div>
+		  </form>
+		</div>
+	</nav><br>
+
+
+
+
+    </div><!-- /header -->
+    <div data-role="content" style="text-shadow: none" >
+    <div class="row">
+      <div class="col s6">
+        <div class="card-panel blue lighten-2">
+          <span class="card-action"><a  href="hospital.html" class="white-text"  id="hospital" data-transition="flip"><center><i class="large material-icons">supervisor_account</i><br>Hospital</a>
+          </span>
+        </div>
+      </div>
+
+    <div class="col s6">
+      <div class="card-panel blue lighten-2">
+        <span class="card-action "><a class="white-text"  href="school.html" data-transition="pop" ><center><i class="large material-icons">work</i><br>School</a>
+        </span>
+      </div>
+      </div>
+    </div>
+  <div class="row">
+    <div class="row">
+      <div class="col s6">
+        <div class="card-panel blue lighten-2 ">
+          <span class="card-action"><a class="white-text"  href="atm.html" data-transition="pop"><center><i class="large material-icons">credit_card</i>ATM</a>
+          </span>
+        </div>
+      </div>
+
+    <div class="col s6">
+      <div class="card-panel blue lighten-2">
+        <span class="card-action"><a class="white-text"  href="church.html" data-transition="pop" ><center><i class="large material-icons">launch</i>Church</a>
+        </span>
+      </div>
+      </div>
+    </div>
+
+</div>
+<div class="row">
+  <div class="row">
+    <div class="col s6">
+      <div class="card-panel blue lighten-2 ">
+        <span class="card-action"><a class="white-text"  href="restaurant.html" data-transition="pop"><center><i class="large material-icons">payment</i>Restaurant</a>
+        </span>
+      </div>
+    </div>
+
+  <div class="col s6">
+    <div class="card-panel blue lighten-2">
+      <span class="card-action"><a class="white-text"  href="bank.html" data-transition="pop" ><center><i class="large material-icons">dashboard</i>Bank</a>
+      </span>
+    </div>
+    </div>
+  </div>
+
+</div>
+  <!--<center><img src="img/letsgo.png" height="50" width="200"></center>
+    <center><img src="img/carpool.jpg" height="250" width="300"></center>-->
+</div>
+
+
+	<div class="col-xs-12 col-md-6">
+
+	<a href='index.html'class="btn btn-default btn-lg btn-block" style="color: #404040"> <span class="glyphicon glyphicon-user"></span> Sign Out</a><br>
+	<a class="navbar-brand" ><span class="glyphicon glyphicon-search"></span>
+ZOEKEN
+	</a>
+
+	</div>
+
+
+</div>
+
+
+
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/platformOverrides.js"></script>
+
+
+</body>
+
+</html>
