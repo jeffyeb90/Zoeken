@@ -29,5 +29,46 @@ function login($email,$password){
 	$strQuery="SELECT * FROM `users` WHERE `password` LIKE '$password' AND `email` LIKE '$email'";
 	return $this->query($strQuery);
 }
+function alogin($email,$password){
+	/**
+	*@var string $strQuery should contain insert query
+	*/
+	$strQuery="SELECT * FROM `adminLogins` WHERE `password` LIKE '$password' AND `email` LIKE '$email'";
+	return $this->query($strQuery);
+}
+function sendRequest($req,$bankName,$clientN,$accN,$date){
+
+
+	$str="Insert into request set type_request='$req',Org_name='$bankName',client_name='$clientN',accountNum='$accN',date='$date'";
+		return $this->query($str);
+
+}
+
+function sendFoodRequest($food_type,$customerN,$restaurantN,$accN,$amount){
+
+
+	$str="Insert into foodRequest set food_type='$food_type',customer_name='$customerN',restaurant_name='$restaurantN',acc_num='$accN',amount='$amount'";
+		return $this->query($str);
+
+}
+function adminLogin($email,$password){
+	/**
+	*@var string $strQuery should contain insert query
+	*/
+	$strQuery="SELECT * FROM `adminLogin` WHERE `password` LIKE '$password' AND `email` LIKE '$email'";
+	return $this->query($strQuery);
+}
+function viewUsers(){
+	$str= "Select name,email,phoneNumber,organizationName from users";
+	return $this->query($str);
+}
+function viewBankRequests(){
+	$str= "Select type_request,Org_name,client_name,date,accountNum from request";
+	return $this->query($str);
+}
+function viewFoodRequests(){
+	$str= "Select food_type,customer_name,restaurant_name,acc_num from foodRequest";
+	return $this->query($str);
+}
 }
 ?>

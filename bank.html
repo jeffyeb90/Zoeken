@@ -46,7 +46,7 @@
       // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-  document.getElementById("you").addEventListener("click", callback);
+
       var map;
       var array;
       var infowindow;
@@ -60,10 +60,11 @@
         });
 
         infowindow = new google.maps.InfoWindow();
+
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
           location: pyrmont,
-          radius: 5000,
+          radius: 10000,
           type: ['bank']
         }, callback);
       }
@@ -95,6 +96,8 @@
 
     <div id="map"></div>
     <li class="list-group-item list-group-item-info"><a href="bankDirectory.html" id="you" class="btn btn-labeled btn-default" style="color: #404040"><i class="fa fa-list-alt fa-fw"></i> <span class="glyphicon glyphicon-eye-open"> </span>  View Directory</a></li>
+      <li class="list-group-item list-group-item-success"><a href="request.html"class="btn btn-labeled btn-default" style="color: #404040" role="button" ><i class="fa fa-home fa-fw"></i> <span class="glyphicon glyphicon-plus"> </span>  Make Request</a></li>
+      <a href='landingPage.html'class="btn btn-default btn-lg btn-block" style="color: #404040"> <span class="glyphicon glyphicon-arrow-left"> </span> Back</a>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeXr7M5tRctFJyC1tTVZqAf2RZ0zSa_7w&libraries=places&callback=initMap" async defer></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>

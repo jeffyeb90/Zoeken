@@ -28,29 +28,10 @@
 </head>
 <body>
 	<a class="navbar-brand" ><span class="glyphicon glyphicon-search"></span>
-ZOEKEN
+ZOEKEN Admin
 	</a>
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
-	  <!-- Indicators -->
-	  <ol class="carousel-indicators">
-	    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-	    <li data-target="#myCarousel" data-slide-to="1"></li>
-	    <li data-target="#myCarousel" data-slide-to="2"></li>
-	  </ol>
 
-	  <!-- Wrapper for slides -->
-	  <div class="carousel-inner" role="listbox">
-	    <div class="item active">
-	      <img src="images/2.jpg"  style="width:715px;height:700px;">
-
-	    </div>
-
- </div>
-	</div>
-
-
-	<a href="register.html" class="btn btn-default btn-lg btn-block" style="color: #404040"> <span class="glyphicon glyphicon-user"> </span>SignUp</a>
-  <a class="btn btn-primary btn-lg btn-block" style="color: #404040" data-toggle="modal" data-target="#myModal" > <span class="glyphicon glyphicon-log-in"> </span> LogIn</a>
+  <a href=#  class="btn btn-primary btn-lg btn-block" style="color: #404040" data-toggle="modal" data-target="#myModal" > <span class="glyphicon glyphicon-log-in"> </span> LogIn</a>
 
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
@@ -100,9 +81,9 @@ ZOEKEN
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <script >
-document.getElementById("loginbtn").addEventListener("click", login);
+document.getElementById("loginbtn").addEventListener("click", adminLogin);
 
- function loginComplete(xhr, status){
+ function adminLoginComplete(xhr, status){
 
 	 if(status!="success"){
 	 	 alert(obj.message);
@@ -114,17 +95,17 @@ document.getElementById("loginbtn").addEventListener("click", login);
 	 	 alert(obj.message);
 	  }else{
 	 	 alert(obj.message);
-	  window.location.href="landingPage.html";
+	  window.location.href="adminIndex.html";
 	  }
 }
 
- function login(){
+ function adminLogin(){
 
 	var username=$("#uLogin").val();
 	 var password=$("#uPassword").val();
-	 var ajaxPageUrl="http://52.89.116.249/~jeffrey.takyi-yeboah/FinalProject/dbLayer.php?cmd=2&login="+username+"&password="+password;
+	 var ajaxPageUrl="http://52.89.116.249/~jeffrey.takyi-yeboah/FinalProject/dbLayer.php?cmd=8&login="+username+"&password="+password;
 	 $.ajax(ajaxPageUrl,
-{async:true,complete:loginComplete}
+{async:true,complete:adminLoginComplete}
 	 );
  }
 </script>

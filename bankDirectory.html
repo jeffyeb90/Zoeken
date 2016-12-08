@@ -41,7 +41,7 @@
       function initMap() {
         var pyrmont = {lat: 5.75958, lng: -0.22019};
 
-        map = new google.maps.Map(document.getElementById('you'), {
+        map = new google.maps.Map(document.getElementById('map'), {
           center: pyrmont,
           zoom: 15
         });
@@ -87,8 +87,8 @@
   <body>
 
 
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeXr7M5tRctFJyC1tTVZqAf2RZ0zSa_7w&libraries=places&callback=initMap" async defer></script>
+<a href='landingPage.html'class="btn btn-default btn-lg btn-block" style="color: #404040"> <span class="glyphicon glyphicon-arrow-left"> </span> Back</a>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeXr7M5tRctFJyC1tTVZqAf2RZ0zSa_7w&libraries=places&callback=callback" async defer></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/platformOverrides.js"></script>

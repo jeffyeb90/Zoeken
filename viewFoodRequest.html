@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+ <link href="css/bootstrap.min.css" rel="stylesheet">
+ <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/jquery-1.12.1.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+ <script>
+   var userAgent = navigator.userAgent + '';
+   if (userAgent.indexOf('iPhone') > -1) {
+     document.write('<script src="js/cordova-iphone.js"></sc' + 'ript>');
+     var mobile_system = 'iphone';
+   } else if (userAgent.indexOf('Android') > -1) {
+     document.write('<script src="js/cordova-android.js"></sc' + 'ript>');
+     var mobile_system = 'android';
+   } else {
+     var mobile_system = '';
+   }
+ </script>
+
+</head>
+<body>
+  <div class="container">
+
+  <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+
+          <a class="navbar-brand" ><span class="glyphicon glyphicon-registration-mark"></span>
+      Zoeken
+          </a>
+
+
+					<div class="form-group">
+						 <div id="error">
+										<!-- error will be shown here ! -->
+						 </div>
+						 </div>
+  			<hr class="colorgraph">
+
+
+
+  			<hr class="colorgraph">
+  			<div class="row">
+  				<div class="col-xs-12 col-md-6">
+           <li class="list-group-item list-group-item-info"><a id="gee1" class="btn btn-labeled btn-default" style="color: #404040"><i class="fa fa-list-alt fa-fw"></i> <span class="glyphicon glyphicon-eye-open"> </span>  View Food Requests</a></li>
+
+          </div>
+
+  			</div>
+				<div class="list-group">
+				</div>
+
+  	</div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-dialog modal-lg">
+
+  	</div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  </div>
+
+  <script >
+  document.getElementById("gee1").addEventListener("click", viewFoodRequest);
+var obj1;
+  var array=[];
+   function viewFoodRequestComplete(xhr, status){
+		 if(status=="success"){
+       var obj=JSON.parse(xhr.responseText);
+           if(obj.result==0){
+
+             alert(obj.message);
+           }
+            else{
+							for (var i=0;i<obj.length;i++){
+								console.log(obj[i].name);
+									obj1= {FoodType:obj[i].food_type,CustomerName:obj[i].customer_name,RestaurantName:obj[i].restaurant_name,AccoutNumber:obj[i].acc_num,Amount:obj[i].amount};
+									array.push(obj1);
+									$('.list-group').append("<a href=''id='"+i+"' class='list-group-item'>"+
+																					"<h4 class='list-group-item-heading'>"+obj[i].food_type+"</h4>"+
+																					"<p class='list-group-item-text'>"+obj[i].customer_name+"</p>"+
+																					"<p class='list-group-item-text'>Restaurant Name "+obj[i].restaurant_name+"</p>"+
+																					"<p class='list-group-item-text'>AccountNumber "+obj[i].acc_num+"</p>"+
+                                          "<p class='list-group-item-text'>Amount: "+obj[i].amount+"</p>" +
+
+																					"</a><br>");
+							}
+           }
+
+		 	}
+else{
+      alert(obj.message);
+      return;
+}
+}
+
+   function viewFoodRequest(){
+
+     var ajaxPageUrl="http://52.89.116.249/~jeffrey.takyi-yeboah/FinalProject/dbLayer.php?cmd=7";
+     $.ajax(ajaxPageUrl,
+  {async:true,complete:viewFoodRequestComplete}
+     );
+   }
+
+
+  </script>
+
+<a href='adminIndex.html'class="btn btn-default btn-lg btn-block" style="color: #404040"> <span class="glyphicon glyphicon-arrow-left"> </span> Back</a>
+     <!-- Include all compiled plugins (below), or include individual files as needed -->
+     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/platformOverrides.js"></script>
+	<script type="text/javascript" src="cordova.js"></script>
+
+
+
+</body>
+</html>

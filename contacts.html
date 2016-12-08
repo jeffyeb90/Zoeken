@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PhoneBook</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+   <link href="css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
+   <link rel="stylesheet" href="css/jquery.mobile.theme.css" />
+   <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-1.12.1.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+
+
+  <script>
+    var userAgent = navigator.userAgent + '';
+    if (userAgent.indexOf('iPhone') > -1) {
+      document.write('<script src="js/lib/cordova-iphone.js"></sc' + 'ript>');
+      var mobile_system = 'iphone';
+    } else if (userAgent.indexOf('Android') > -1) {
+      document.write('<script src="js/lib/cordova-android.js"></sc' + 'ript>');
+      var mobile_system = 'android';
+    } else {
+      var mobile_system = '';
+    }
+  </script>
+ <body>
+ <h2>Contacts List</h2>
+ <div id="mobile"></div>
+ <div id="email"></div>
+ <script src="cordova.js"></script>
+ <script type="text/javascript">
+
+ document.addEventListener("deviceready", init, false);
+function init() {
+  navigator.contacts.find([navigator.contacts.fieldType.displayName],gotContacts,errorHandler);
+}
+function errorHandler(e) {
+ console.log("errorHandler: "+e);
+}
+
+function gotContacts(c) {
+ console.log("gotContacts, number of results "+c.length);
+
+ mobileDiv = document.querySelector("#mobile");
+ emailDiv = document.querySelector("#email");
+
+ /* Retriving phoneNumbers */
+ for(var i=0, len=c.length; i<len; i++) {
+ if(c[i].phoneNumbers && c[i].phoneNumbers.length > 0) {
+ mobileDiv.innerHTML += "<p>"+c[i].displayName+"<br/>"+c[i].phoneNumbers[0].value+"</p>";
+ }
+ }
+
+ /* Retriving Email */
+ for(var i=0, len=c.length; i<len; i++) {
+ if(c[i].emails && c[i].emails.length > 0) {
+ emailDiv.innerHTML += "<p>"+c[i].emails[0].value+"</p>";
+ }
+ }
+}
+ </script>
+ <a href='landingPage.html'class="btn btn-default btn-lg btn-block" style="color: #404040"> <span class="glyphicon glyphicon-arrow-left"> </span> Back</a>
+ <script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/platformOverrides.js"></script>
+ </body>
+</html>

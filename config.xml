@@ -111,6 +111,7 @@
   <plugin name="cordova-plugin-compat" />
   <plugin name="cordova-plugin-file"  />
   <plugin name="cordova-plugin-geolocation" />
+  <plugin name="cordova-plugin-contacts" />
 
   <preference name="android-minSdkVersion" value="1" />
   <preference name="android-maxSdkVersion" value="23" />

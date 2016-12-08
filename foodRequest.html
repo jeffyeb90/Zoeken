@@ -42,39 +42,35 @@
 
 
         <div class="form-group">
-          <input type="text" name="name" id="name" class="form-control input-lg" placeholder="Name" tabindex="3">
+          <input type="text" name="foodType" id="foodType" class="form-control input-lg" placeholder="Food Type" tabindex="3">
         </div>
   			<div class="form-group">
-  				<input type="text" name="Orgname" id="Orgname" class="form-control input-lg" placeholder="Organization Name" tabindex="3">
+  				<input type="text" name="customerName" id="customerName" class="form-control input-lg" placeholder="Customer Name" tabindex="3">
   			</div>
   			<div class="form-group">
-  				<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email" tabindex="4">
+  				<input type="text" name="restaurantName" id="restaurantName" class="form-control input-lg" placeholder="Restaurant Name" tabindex="4">
   			</div>
   			<div class="row">
   				<div class="col-xs-12 col-sm-6 col-md-6">
   					<div class="form-group">
-  						<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
+  						<input type="text" name="accNum" id="accNum" class="form-control input-lg" placeholder="Account Number" tabindex="5">
   					</div>
   				</div>
   				<div class="col-xs-12 col-sm-6 col-md-6">
   					<div class="form-group">
-  						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="6">
+  						<input type="text" name="amount" id="amount" class="form-control input-lg" placeholder="$ Amount" tabindex="6">
   					</div>
   				</div>
-                   	<div class="col-xs-12 col-sm-6 col-md-6">
-            					<div class="form-group">
-            						<input type="tel" name="phonenum" id="phonenum" class="form-control input-lg" placeholder="233272430509" tabindex="2">
-            					</div>
-            				</div>
+
   			</div>
 
   			<hr class="colorgraph">
   			<div class="row">
   				<div class="col-xs-12 col-md-6">
-         <a  id="subt" type="submit" class="btn btn-primary btn-lg btn-block" > <span class="glyphicon glyphicon-ok"> </span> Register</a>
+         <a  id="new" type="submit" class="btn btn-primary btn-lg btn-block" > <span class="glyphicon glyphicon-ok"> </span> Send Request</a>
 
-          <a href='index.html'class="btn btn-default btn-lg btn-block" style="color: #404040"> <span class="glyphicon glyphicon-arrow-left"> </span> Back</a>
-          </div>
+          <a href='landingPage.html'class="btn btn-default btn-lg btn-block" style="color: #404040"> <span class="glyphicon glyphicon-arrow-left"> </span> Back</a>
+				</div>
 
   			</div>
 				<div id="check">
@@ -92,9 +88,9 @@
   </div>
 
   <script >
-  document.getElementById("subt").addEventListener("click", signUp);
+  document.getElementById("new").addEventListener("click", sendFoodRequest);
 
-   function signUpComplete(xhr, status){
+   function sendFoodRequestComplete(xhr, status){
 		 if(status!="success"){
 		 		alert(obj.message);
 		 		return;
@@ -105,22 +101,22 @@
 
 		 	}else{
 		 		alert(obj.message);
-      window.location.href="index.html";
+      window.location.href="restaurant.html";
 		 	}
 
 }
 
-   function signUp(){
+   function sendFoodRequest(){
 
-    var name=$("#name").val();
-		var Orgname=$("#Orgname").val();
-     var email=$("#email").val();
-     var password=$("#password").val();
-       var phonenum=$("#phonenum").val();
-var passC =$("#password_confirmation").val()
-     var ajaxPageUrl="http://52.89.116.249/~jeffrey.takyi-yeboah/FinalProject/dbLayer.php?cmd=1&name="+name+"&Orgname="+Orgname+"&email="+email+"&password="+password+"&phonenum="+phonenum+"&password_confirmation="+passC;
+    var foodType =$("#foodType").val();
+		var customerName=$("#customerName").val();
+     var restaurantName=$("#restaurantName").val();
+     var accNum=$("#accNum").val();
+       var amount=$("#amount").val();
+
+     var ajaxPageUrl="dbLayer.php?cmd=4&foodType="+foodType+"&customerName="+customerName+"&restaurantName="+restaurantName+"&accNum="+accNum+"&amount="+amount;
      $.ajax(ajaxPageUrl,
-  {async:true,complete:signUpComplete}
+  {async:true,complete:sendFoodRequestComplete}
      );
    }
   </script>
