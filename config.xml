@@ -3,7 +3,7 @@
   <name>Zoeken</name>
   <description>Nearest Search Application </description>
   <author href="http://cordova.io" email="dev@cordova.apache.org">Apache Cordova Team </author>
-  <content src="signup.html" />
+  <content src="index.html" />
   <access origin="*" />
   <vs:features />
   <preference name="SplashScreen" value="screen" />
