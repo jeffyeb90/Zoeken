@@ -137,7 +137,7 @@ echo'{"result":1,"message":"Log In Successful"}';
 return;
 }
 else{
-echo '{"result":1,"message":"Wrong Credentials. Enter correct username and password"}';
+echo '{"result":0,"message":"Wrong Credentials. Enter correct username and password"}';
 return;
 }
 }
@@ -367,7 +367,7 @@ function sendRequest(){
     return;
     }
     else{
-    echo '{"result":1,"message":"Wrong Credentials. Enter correct username and password"}';
+    echo '{"result":0,"message":"Wrong Credentials. Enter correct username and password"}';
     return;
     }
     }
