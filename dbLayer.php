@@ -92,7 +92,7 @@
          $smsmessage =str_replace(' ','%20',$smsmessage);
          $ch = curl_init("http://52.89.116.249:13013/cgi-bin/sendsms?username=mobileapp&password=foobar&to=$phonenum&from=$sender&smsc=smsc&text=$smsmessage");
          //session_write_close();
-         echo' {"result":1,"message":"User signed up Successfully ';
+         echo' {"result":1,"message":"User signed up Successfully';
 
           $response= curl_exec($ch);
         echo  '"}';
@@ -187,7 +187,7 @@ function sendRequest(){
       $check = $obj->sendRequest($req,$bankName,$clientN,$accN,$date);
       if($check==true){
         $sender ="Zoeken";
-        $smsmessage = "Request from "+$clientN +" with account number "+ $accN + " for " +$req;
+        $smsmessage = "Request made. Check Admin Page for details";
         $smsmessage =str_replace(' ','%20',$smsmessage);
         $ch = curl_init("http://52.89.116.249:13013/cgi-bin/sendsms?username=mobileapp&password=foobar&to=233272430509&from=Zoeken&smsc=smsc&text=$smsmessage");
          echo' {"result":1,"message":"Bank Request sent Successfully ';
@@ -245,14 +245,13 @@ function sendRequest(){
         $check = $obj->sendFoodRequest($food_type,$customerN,$restaurantN,$accN,$amount);
         if($check==true){
           $sender ="Zoeken";
-          $smsmessage = "Food Request from "+$customerN +" with account number "+ $accN + " for " +$food_type;
+          $smsmessage = "Food Requested. Check Admin Page ";
           $smsmessage =str_replace(' ','%20',$smsmessage);
           $ch = curl_init("http://52.89.116.249:13013/cgi-bin/sendsms?username=mobileapp&password=foobar&to=233272430509&from=Zoeken&smsc=smsc&text=$smsmessage");
-           echo' {"result":1,"message":" Food Request made Successfully ';
+           echo' {"result":1,"message":"Food Request made Successfully ';
             $response= curl_exec($ch);
           echo  '"}';
               return;
-
 
         }
        else{
