@@ -78,15 +78,14 @@ var obj1;
             else{
 							for (var i=0;i<obj.length;i++){
 								//console.log(obj[i].name);
-									obj1= {FoodType:obj[i].food_type,CustomerName:obj[i].customer_name,RestaurantName:obj[i].restaurant_name,AccoutNumber:obj[i].acc_num,Amount:obj[i].amount};
+									obj1= {FoodType:obj[i].food_type,CustomerName:obj[i].customer_name,RestaurantName:obj[i].restaurant_name,Amount:obj[i].amount,AccountNumber:obj[i].acc_num};
 									array.push(obj1);
 									$('.list-group').append("<a href=''id='"+i+"' class='list-group-item'>"+
 																					"<h4 class='list-group-item-heading'>"+obj[i].food_type+"</h4>"+
 																					"<p class='list-group-item-text'>"+obj[i].customer_name+"</p>"+
-																					"<p class='list-group-item-text'>Restaurant Name "+obj[i].restaurant_name+"</p>"+
-																					"<p class='list-group-item-text'>AccountNumber "+obj[i].acc_num+"</p>"+
-                                          "<p class='list-group-item-text'>Amount $: "+obj[i].amount+"</p>" +
-
+																					"<p class='list-group-item-text'>Restaurant Name: "+obj[i].restaurant_name+"</p>"+
+																					"<p class='list-group-item-text'>AccountNumber: "+obj[i].acc_num+"</p>"+
+																					"<p class='list-group-item-text'>Amount: "+obj[i].amount+"</p>"
 																					"</a><br>");
 							}
            }
