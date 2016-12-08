@@ -67,7 +67,7 @@ function viewBankRequests(){
 	return $this->query($str);
 }
 function viewFoodRequests(){
-	$str= "Select food_type,customer_name,restaurant_name,acc_num from foodRequest";
+	$str= "Select food_type,customer_name,restaurant_name,acc_num,amount from foodRequest";
 	return $this->query($str);
 }
 }
