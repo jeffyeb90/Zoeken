@@ -87,15 +87,15 @@
        if($check==true){
 
 
-         $sender ="Zoeken";
-         $smsmessage = "You have sucesssfully registered to use Zoeken App. Welcome to the world of innovation";
-         $smsmessage =str_replace(' ','%20',$smsmessage);
-         $ch = curl_init("http://52.89.116.249:13013/cgi-bin/sendsms?username=mobileapp&password=foobar&to=$phonenum&from=$sender&smsc=smsc&text=$smsmessage");
+        // $sender ="Zoeken";
+        // $smsmessage = "You have sucesssfully registered to use Zoeken App. Welcome to the world of innovation";
+        // $smsmessage =str_replace(' ','%20',$smsmessage);
+         //$ch = curl_init("http://52.89.116.249:13013/cgi-bin/sendsms?username=mobileapp&password=foobar&to=$phonenum&from=$sender&smsc=smsc&text=$smsmessage");
          //session_write_close();
-         echo' {"result":1,"message":"User signed up Successfully';
+         echo' {"result":1,"message":"User signed up Successfully"}';
 
-          $response= curl_exec($ch);
-        echo  '"}';
+          //$response= curl_exec($ch);
+        //echo  '"}';
 
    return;
 
