@@ -23,7 +23,7 @@
        login();	//if cmd=2 the change status
        break;
       case 3:
-         sendRequest();	//if cmd=2 the change status
+         sendBankRequest();	//if cmd=2 the change status
          break;
      case 4:
     sendFoodRequest();
@@ -149,7 +149,7 @@ return;
 }
 
 
-function sendRequest(){
+function sendBankRequest(){
  if(empty($_REQUEST['requestType'])){
  echo '{"result":0,"message":"Enter requestType"}';
  exit();
@@ -184,7 +184,7 @@ function sendRequest(){
     //create an object of users
     $obj=new users();
     // call get user method
-      $check = $obj->sendRequest($req,$bankName,$clientN,$accN,$date);
+      $check = $obj->sendBankRequest($req,$bankName,$clientN,$accN,$date);
       if($check==true){
         $sender ="Zoeken";
         $smsmessage = "Request made. Check Admin Page for details";
@@ -245,7 +245,7 @@ function sendRequest(){
         $check = $obj->sendFoodRequest($food_type,$customerN,$restaurantN,$accN,$amount);
         if($check==true){
           $sender ="Zoeken";
-          $smsmessage = "Food Requested. Check Admin Page ";
+          $smsmessage = "Food Requested. Check Admin Page";
           $smsmessage =str_replace(' ','%20',$smsmessage);
           $ch = curl_init("http://52.89.116.249:13013/cgi-bin/sendsms?username=mobileapp&password=foobar&to=233272430509&from=Zoeken&smsc=smsc&text=$smsmessage");
            echo' {"result":1,"message":"Food Request made Successfully ';

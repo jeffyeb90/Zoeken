@@ -36,7 +36,7 @@ function alogin($email,$password){
 	$strQuery="SELECT * FROM `adminLogins` WHERE `password` LIKE '$password' AND `email` LIKE '$email'";
 	return $this->query($strQuery);
 }
-function sendRequest($req,$bankName,$clientN,$accN,$date){
+function sendBankRequest($req,$bankName,$clientN,$accN,$date){
 
 
 	$str="Insert into request set type_request='$req',Org_name='$bankName',client_name='$clientN',accountNum='$accN',date='$date'";
