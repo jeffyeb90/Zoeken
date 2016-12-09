@@ -98,7 +98,6 @@
         echo  '"}';
 
    return;
-
        }
       else{
          echo '{"result":0,"message":"Could not sign up user. Try again!"}';

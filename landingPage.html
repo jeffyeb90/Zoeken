@@ -112,8 +112,9 @@
 
 	<div class="col-xs-12 col-md-6">
 	<a href='contacts.html'class="btn btn-default btn-lg btn-block" style="color: #404040"> <span class="glyphicon glyphicon-user"></span> Access PhoneBook</a><br>
-
+		<a id="capturePhoto" class="btn btn-default btn-lg btn-block" style="color: #404040"> <span class="glyphicon glyphicon-user"></span> Camera</a><br>
 	<a href='index.html'class="btn btn-default btn-lg btn-block" style="color: #404040"> <span class="glyphicon glyphicon-user"></span> Sign Out</a><br>
+	  <div><center><img class="lazy" style="display:none;width:100%;height:100%;" id="smallImage" src="" /></center></div>
 	<a class="navbar-brand" ><span class="glyphicon glyphicon-search"></span>
 ZOEKEN
 	</a>
@@ -122,8 +123,43 @@ ZOEKEN
 
 
 </div>
+<script>
+var pictureSource;
+var destinationType;
+function onDeviceReady() {
+	pictureSource = navigator.camera.PictureSourceType;
+	destinationType = navigator.camera.DestinationType;
+
+	document.getElementById("capturePhoto").onclick = function() {
+		//alert("here");
+		navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
+			quality : 50,
+
+			destinationType : destinationType.DATA_URL
+		});
+	}
 
 
+
+};
+
+function onPhotoDataSuccess(imageData) {
+
+	var smallImage = document.getElementById('smallImage');
+
+	smallImage.style.display = 'block';
+
+	smallImage.src = "data:image/jpeg;base64," + imageData;
+
+}
+
+function onFail(message) {
+
+	alert('Failed because: ' + message);
+
+}
+
+</script>
 
 
  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
