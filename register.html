@@ -95,7 +95,7 @@
   document.getElementById("subt").addEventListener("click", signUp);
 
    function signUpComplete(xhr, status){
-		var phonenum1=$("#phonenum").val();
+	//	var phonenum1=$("#phonenum").val();
 		 if(status!="success"){
 		 		alert(obj.message);
 		 		return;
@@ -106,7 +106,7 @@
 
 		 	}else{
 		 		alert(obj.message);
-		//header("Location: http://52.89.116.249:13013/cgi-bin/sendsms?username=mobileapp&password=foobar&to="+phonenum1+"&from=Zoeken&smsc=smsc&text=You Have Successfully signed up onto Zoeken. Welcome to the world of innovation");
+//window.open("http://52.89.116.249:13013/cgi-bin/sendsms?username=mobileapp&password=foobar&to=233243173&from=Zoeken&smsc=smsc&text=You%20Have%20Successfully%20signed%20up%20onto%20Zoeken.%20Welcome%20to%20the%20world%20of%20innovation");
       window.location.href="index.html";
 		 	}
 
