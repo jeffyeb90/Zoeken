@@ -33,62 +33,87 @@
 
   </head>
   <body>
+    <div class="container">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+
+            <a class="navbar-brand" ><span class="glyphicon glyphicon-registration-mark"></span>
+        Zoeken
+            </a>
+
+
+  					<div class="form-group">
+  						 <div id="error">
+  										<!-- error will be shown here ! -->
+  						 </div>
+  						 </div>
+    			<hr class="colorgraph">
+
+
+
+    			<hr class="colorgraph">
+    			<div class="row">
+    				<div class="col-xs-12 col-md-6">
+             <li class="list-group-item list-group-item-info"><a id="gee1" class="btn btn-labeled btn-default" style="color: #404040"><i class="fa fa-list-alt fa-fw"></i> <span class="glyphicon glyphicon-eye-open"> </span>  View Bank Directory</a></li>
+
+            </div>
+
+    			</div>
+  				<div class="list-group">
+  				</div>
+
+    	</div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    	<div class="modal-dialog modal-lg">
+
+    	</div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    </div>
     <script>
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+    document.getElementById("gee1").addEventListener("click", viewBankDirectory);
+  var obj1;
+    var array=[];
+     function viewBankDirectoryComplete(xhr, status){
+       if(status=="success"){
+         var obj=JSON.parse(xhr.responseText);
+             if(obj.result==0){
 
-      var map;
-      var array;
-      var infowindow;
+               alert(obj.message);
+             }
+              else{
+                for (var i=0;i<obj.length;i++){
+                  //console.log(obj[i].name);
+                    obj1= {BankName:obj[i].bankName,location:obj[i].location,PhoneNumber:obj[i].phoneNum};
+                    array.push(obj1);
+                    $('.list-group').append("<a href=''id='"+i+"' class='list-group-item'>"+
+                                            "<h4 class='list-group-item-heading'>"+obj[i].bankName+"</h4>"+
+                                            "<p class='list-group-item-text'>"+obj[i].location+"</p>"+
+                                            "<p class='list-group-item-text'>PhoneNumber: "+obj[i].phoneNum+"</p>"+
 
-      function initMap() {
-        var pyrmont = {lat: 5.75958, lng: -0.22019};
+                                            "</a><br>");
+                }
+             }
 
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: pyrmont,
-          zoom: 15
-        });
-
-        infowindow = new google.maps.InfoWindow();
-        var service = new google.maps.places.PlacesService(map);
-        service.nearbySearch({
-          location: pyrmont,
-          radius: 5000,
-          type: ['bank']
-        }, callback);
-      }
-      function callback(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            createMarker(results[i]);
-            console.log(results[i].name);
-              obj1= {pool_name:results[i].name,destination:results[i].formatted_address};
-              array.push(obj1);
-              $('.list-group').append("<a href=''id='"+i+"' class='list-group-item'>"+
-                                      "<h4 class='list-group-item-heading'>"+results[i].name+"</h4>"+
-                                      "<p class='list-group-item-text'>"+results[i].formatted_address+"</p>"+
-
-                                      "</a><br>");
-          }
         }
-      }
+  else{
+        alert(obj.message);
+        return;
+  }
+  }
 
-      function createMarker(place) {
-        var placeLoc = place.geometry.location;
-        var marker = new google.maps.Marker({
-          map: map,
-          position: place.geometry.location
-        });
+     function viewBankDirectory(){
 
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
-        });
-      }
+       var ajaxPageUrl="http://52.89.116.249/~jeffrey.takyi-yeboah/FinalProject/dbLayer.php?cmd=9";
+       $.ajax(ajaxPageUrl,
+    {async:true,complete:viewBankDirectoryComplete}
+       );
+     }
 </script>
 <a href='landingPage.html'class="btn btn-default btn-lg btn-block" style="color: #404040"> <span class="glyphicon glyphicon-arrow-left"> </span> Back</a>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeXr7M5tRctFJyC1tTVZqAf2RZ0zSa_7w&libraries=places&callback=callback" async defer></script>
+
     <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/platformOverrides.js"></script>

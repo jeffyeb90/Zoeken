@@ -40,6 +40,9 @@
      case 8:
     adminLogin();
      break;
+    case 9:
+     viewBankDirectory();
+     break;
      default:
        echo "wrong cmd";	//change to json message
        break;
@@ -376,7 +379,31 @@ function sendBankRequest(){
     }
     }
 
+    function viewBankDirectory(){
+      include_once("functions.php");
+      //create an object of users
+      $obj=new users();
+      // call get user method
 
+        $check = $obj->viewBankDirectory();
+        if($check==false){
+    header('Content-Type:application/json');
+     echo '{"result":0,"message":"No requests to view"}';
+     return;
+        }
+      else{
+    header('Content-Type:application/json');
+    $array= array();
+    while($res=$obj->fetch())
+    {
+
+      $array[]=$res;
+    }
+    echo json_encode($array);
+
+      }
+
+    }
 
 
 ?>

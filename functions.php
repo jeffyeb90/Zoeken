@@ -70,5 +70,9 @@ function viewFoodRequests(){
 	$str= "Select food_type,customer_name,restaurant_name,acc_num,amount from foodRequest";
 	return $this->query($str);
 }
+function viewBankDirectory(){
+$str= "Select bankName,location,phoneNum from bankDirectory";
+return $this->query($str);
+}
 }
 ?>
